@@ -10,9 +10,10 @@ def main():
     print("Licensed under MIT license")
     print("Commercial use of this build is prohibited")
     print("Creating virtual filesystem")
-    startpath = "/bootloader/bootloader.pba"
+    startpath = "./bootloader/bootloader.pba"
     if sys.argv[1] != "":
         startpath = sys.argv[1]
+    startRead(startpath)
         
 def startRead(filepath):
     print("Opened file " + filepath)
@@ -22,17 +23,18 @@ def startRead(filepath):
         line = line.replace(";", "").replace("/n", "").strip()
         if line.startswith("//"):
             # Do nothing, this is a comment
-        else if line.startwith("PRINT"):
-            line = line.replace("PRINT", "").strip()
+            print "Comment found"
+        elif line.startswith("PRINT"):
+            line = line.replace("PRINT", "").replace('"',"").strip()
             print line
-        else if line.startswith("NEWPRINT"):
+        elif line.startswith("NEWPRINT"):
             print '\n'
-        else if line.startswith("CREATESWAP"):
-            # Do nothing for now
-        else if line.startswith("IO"):
+        elif line.startswith("CREATESWAP"):
+            print "Initialized SWAP space"
+        elif line.startswith("IO"):
             cmds = line.split()
             print "IO port " + cmds[1] + " has a status of " + cmds[2]
-        else if line.startswith("NEW"):
+        elif line.startswith("NEW"):
             cmds = line.split()
             try:
                 varstore[cmds[1].replace("$","")]
@@ -40,20 +42,20 @@ def startRead(filepath):
             except: 
                 varstore[cmds[1].replace("$","")] = str(line.replace("NEW","").replace(cmds[1],"").strip())
                 pass
-        else if line.startswith("DELETE"):
+        elif line.startswith("DELETE"):
             try:
                 del varstore[line.split()[1].replace("$","").strip()]
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
                 pass
-        else if line.startswith("SET"):
+        elif line.startswith("SET"):
             try:
                 varstore[line.split()[1].replace("$","").strip()] = line.replace("SET","").replace(line.split()[1],"").strip()
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
-        else if line.startswith("EXTLOAD"):
-            startRead(line.replace("EXTLOAD","").strip())
-        else if line.startswith("END"):
+        elif line.startswith("EXTLOAD"):
+            startRead("." + line.replace("EXTLOAD","").strip())
+        elif line.startswith("END"):
             print "Program has quit. Exiting."
             sys.exit(0)
         else:

@@ -1,0 +1,5 @@
+PRINT "Hello World!";
+NEWPRINT;
+IO 13 1;
+EXTLOAD /testprog/sayhello.pba;
+END
