@@ -22,6 +22,7 @@ def startRead(filepath):
         line = line.replace(";", "").replace("/n", "").strip()
         if line.startswith("//"):
             # Do nothing, this is a comment
+            print "Comment found"
         elif line.startwith("PRINT"):
             line = line.replace("PRINT", "").replace('"',"").strip()
             print line
