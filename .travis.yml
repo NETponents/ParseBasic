@@ -4,3 +4,6 @@ branches:
     - master
 install:
   - pip install nose
+script:
+  #- nosetests
+  - python ./pb.py
