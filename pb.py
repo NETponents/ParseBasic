@@ -13,6 +13,7 @@ def main():
     startpath = "/bootloader/bootloader.pba"
     if sys.argv[1] != "":
         startpath = sys.argv[1]
+    startRead(startpath)
         
 def startRead(filepath):
     print("Opened file " + filepath)
