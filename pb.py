@@ -22,17 +22,17 @@ def startRead(filepath):
         line = line.replace(";", "").replace("/n", "").strip()
         if line.startswith("//"):
             # Do nothing, this is a comment
-        else if line.startwith("PRINT"):
+        elif line.startwith("PRINT"):
             line = line.replace("PRINT", "").replace('"',"").strip()
             print line
-        else if line.startswith("NEWPRINT"):
+        elif line.startswith("NEWPRINT"):
             print '\n'
-        else if line.startswith("CREATESWAP"):
+        elif line.startswith("CREATESWAP"):
             # Do nothing for now
-        else if line.startswith("IO"):
+        elif line.startswith("IO"):
             cmds = line.split()
             print "IO port " + cmds[1] + " has a status of " + cmds[2]
-        else if line.startswith("NEW"):
+        elif line.startswith("NEW"):
             cmds = line.split()
             try:
                 varstore[cmds[1].replace("$","")]
@@ -40,20 +40,20 @@ def startRead(filepath):
             except: 
                 varstore[cmds[1].replace("$","")] = str(line.replace("NEW","").replace(cmds[1],"").strip())
                 pass
-        else if line.startswith("DELETE"):
+        elif line.startswith("DELETE"):
             try:
                 del varstore[line.split()[1].replace("$","").strip()]
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
                 pass
-        else if line.startswith("SET"):
+        elif line.startswith("SET"):
             try:
                 varstore[line.split()[1].replace("$","").strip()] = line.replace("SET","").replace(line.split()[1],"").strip()
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
-        else if line.startswith("EXTLOAD"):
+        elif line.startswith("EXTLOAD"):
             startRead(line.replace("EXTLOAD","").strip())
-        else if line.startswith("END"):
+        elif line.startswith("END"):
             print "Program has quit. Exiting."
             sys.exit(0)
         else:
