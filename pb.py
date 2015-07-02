@@ -29,7 +29,7 @@ def startRead(filepath):
         elif line.startswith("NEWPRINT"):
             print '\n'
         elif line.startswith("CREATESWAP"):
-            # Do nothing for now
+            print "Initialized SWAP space"
         elif line.startswith("IO"):
             cmds = line.split()
             print "IO port " + cmds[1] + " has a status of " + cmds[2]
