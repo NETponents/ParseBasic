@@ -10,7 +10,7 @@ def main():
     print("Licensed under MIT license")
     print("Commercial use of this build is prohibited")
     print("Creating virtual filesystem")
-    startpath = "/bootloader/bootloader.pba"
+    startpath = "./bootloader/bootloader.pba"
     if sys.argv[1] != "":
         startpath = sys.argv[1]
     startRead(startpath)
@@ -54,7 +54,7 @@ def startRead(filepath):
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
         elif line.startswith("EXTLOAD"):
-            startRead(line.replace("EXTLOAD","").strip())
+            startRead("." + line.replace("EXTLOAD","").strip())
         elif line.startswith("END"):
             print "Program has quit. Exiting."
             sys.exit(0)
