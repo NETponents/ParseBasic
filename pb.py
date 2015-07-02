@@ -23,7 +23,7 @@ def startRead(filepath):
         if line.startswith("//"):
             # Do nothing, this is a comment
         else if line.startwith("PRINT"):
-            line = line.replace("PRINT", "").strip()
+            line = line.replace("PRINT", "").replace('"',"").strip()
             print line
         else if line.startswith("NEWPRINT"):
             print '\n'
