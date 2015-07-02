@@ -6,4 +6,4 @@ install:
   - pip install nose
 script:
   #- nosetests
-  - python ./pb.py /testprog/start.pba
+  - python ./pb.py ./testprog/start.pba
