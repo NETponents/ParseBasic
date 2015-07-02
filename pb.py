@@ -9,6 +9,8 @@ def main():
     print("Copyright 2015 NETponents")
     print("Licensed under MIT license")
     print("Commercial use of this build is prohibited")
+    print("============================================")
+    print(" ")
     print("Creating virtual filesystem")
     startpath = "./bootloader/bootloader.pba"
     if sys.argv[1] != "":
