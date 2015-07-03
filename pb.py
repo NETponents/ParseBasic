@@ -43,7 +43,7 @@ def startRead(filepath):
             try:
                 varstore[cmds[1].replace("$","")]
                 print "ERROR: variable " + cmds[1] + " already exists."
-                errorcount++
+                errorcount += 1
             except: 
                 varstore[cmds[1].replace("$","")] = str(line.replace("NEW","").replace(cmds[1],"").strip())
                 pass
@@ -52,25 +52,26 @@ def startRead(filepath):
                 del varstore[line.split()[1].replace("$","").strip()]
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
-                errorcount++
+                errorcount += 1
                 pass
         elif line.startswith("SET"):
             try:
                 varstore[line.split()[1].replace("$","").strip()] = line.replace("SET","").replace(line.split()[1],"").strip()
             except:
                 print "ERROR: variable " + line.split()[1] + " is not defined."
-                errorcount++
+                errorcount += 1
                 pass
         elif line.startswith("EXTLOAD"):
             startRead("." + line.replace("EXTLOAD","").strip())
         elif line.startswith("END"):
             print "Program has quit. Exiting."
+            fileHandle.close
             print "Errors: " + str(errorcount)
             print "Warnings: " + str(errorcount)
             sys.exit(errorcount)
         else:
             print "ERROR: Unknown command in file " + filepath
-            errorcount++
+            errorcount += 1
     fileHandle.close
 
 if __name__ == '__main__':
