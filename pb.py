@@ -13,6 +13,9 @@ def main():
     print("Commercial use of this build is prohibited")
     print("============================================")
     print(" ")
+    print("Setting up debugger")
+    errorcount = 0
+    warningcount = 0
     print("Creating virtual filesystem")
     startpath = "./bootloader/bootloader.pba"
     if sys.argv[1] != "":
@@ -67,7 +70,7 @@ def startRead(filepath):
             print "Program has quit. Exiting."
             fileHandle.close
             print "Errors: " + str(errorcount)
-            print "Warnings: " + str(errorcount)
+            print "Warnings: " + str(warningcount)
             sys.exit(errorcount)
         else:
             print "ERROR: Unknown command in file " + filepath
