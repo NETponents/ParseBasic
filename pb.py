@@ -69,8 +69,8 @@ def startRead(filepath):
         elif line.startswith("END"):
             print "Program has quit. Exiting."
             fileHandle.close
-            print "Errors: " + str(errorcount)
-            print "Warnings: " + str(warningcount)
+            #print "Errors: " + str(errorcount)
+            #print "Warnings: " + str(warningcount)
             sys.exit(errorcount)
         else:
             print "ERROR: Unknown command in file " + filepath
