@@ -71,7 +71,8 @@ def startRead(filepath):
             fileHandle.close
             #print "Errors: " + str(errorcount)
             #print "Warnings: " + str(warningcount)
-            sys.exit(errorcount)
+            #sys.exit(errorcount)
+            sys.exit(0)
         else:
             print "ERROR: Unknown command in file " + filepath
             errorcount += 1
