@@ -67,7 +67,7 @@ def startRead(filepath):
         elif line.startswith("EXTLOAD"):
             startRead("." + line.replace("EXTLOAD","").strip())
         elif line.startswith("FILEWRITE"):
-            line = line.replace("FILEWRITE").strip()
+            line = line.replace("FILEWRITE","").strip()
             fname = line.split(" ")
             filehandler = open("." + fname[0], 'w')
             filehandler.write(line.replace(fname[0], "").strip())
