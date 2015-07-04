@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import time
 
 varstore = {}
 errorcount = 0
@@ -36,6 +37,8 @@ def startRead(filepath):
             print line
         elif line.startswith("NEWPRINT"):
             print '\n'
+        elif line.startswith("WAIT"):
+            time.sleep(int(line.split(" ")[1]) / 1000)
         elif line.startswith("CREATESWAP"):
             print "Initialized SWAP space"
         elif line.startswith("IO"):
