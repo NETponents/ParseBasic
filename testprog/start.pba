@@ -7,4 +7,5 @@ EXTLOAD /testprog/sayhello.pba;
 NEW $var1 Nothing;
 FILEWRITE /testprog/test.txt Hello World!;
 FILEREAD /testprog/test.txt $var1;
+WAIT 5000;
 END
