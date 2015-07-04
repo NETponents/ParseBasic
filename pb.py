@@ -66,6 +66,24 @@ def startRead(filepath):
                 pass
         elif line.startswith("EXTLOAD"):
             startRead("." + line.replace("EXTLOAD","").strip())
+        elif line.startswith("FILEWRITE"):
+            line = line.replace("FILEWRITE","").strip()
+            fname = line.split(" ")
+            filehandler = open("." + fname[0], 'w')
+            filehandler.write(line.replace(fname[0], "").strip())
+            filehandler.close();
+        elif line.startswith("FILEREAD"):
+            cmd2 = line.split(" ")
+            fhandle = open("." + cmd2[1])
+            text = fhandle.read()
+            try:
+                varstore[cmd2[2].replace("$","").strip()] = text
+            except:
+                print "ERROR: variable " + cmd2[2] + " is not defined."
+                errorcount += 1
+                pass
+        elif line.startswith("FILERM"):
+            print "ERROR: Not supported yet"
         elif line.startswith("END"):
             print "Program has quit. Exiting."
             fileHandle.close
