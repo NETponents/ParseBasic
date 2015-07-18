@@ -1,0 +1,63 @@
+<html>
+  <body>
+    <h1>ParseBasic Documentation</h1>
+    <p>ParseBasic is a programming language designed to make it easier to create parsers for the <a href="http://github.com/NETponents/octoduino">Octoduino project</a>. The syntax is created so the code is very easy to understand by anyone who has done coding before.</p>
+    <h2>Boot process</h2>
+    <p>ParseBasic emulates an SD card root at the location where it is run. It first searches for a <b>bootloader</b> folder. Inside, it will look for a file called <b>bootloader.pba</b>. All ParseBasic files have the .pba extension. Execution will begin inside of that file.</p>
+    <h2>Command set</h2>
+    <p>ParseBasic has a very basic command set. They usually follow this syntax: <b>COMMAND arg1 arg2 ... ;</b> Make sue that the command is ALWAYS in caps. Otherwise you will recieve a tokenizer error.</p>
+    <hr>
+    <h3>PRINT</h3>
+    <p>Syntax: <b>PRINT "string to write";</b></p>
+    <p>Notes: </p>
+    <hr>
+    <h3>NEWPRINT</h3>
+    <p>Syntax: <b>NEWPRINT;</b></p>
+    <p>Notes: Creates a new line in output.</p>
+    <hr>
+    <h3>WAIT</h3>
+    <p>Syntax: <b>WAIT int;</b></p>
+    <p>Notes: <b>int</b> is in millisecods.</p>
+    <hr>
+    <h3>CREATESWAP</h3>
+    <p>Syntax: <b>CREATESWAP;</b></p>
+    <p>Notes: This is emulated in the ParseBasic x86-64 interpreter. This creates the SWAP folder (if it doesn't already exist).</p>
+    <hr>
+    <h3>IO</h3>
+    <p>Syntax: <b>IO int1 int2;</b></p>
+    <p>Notes: int1 is the port, int2 is the status (high or low).</p>
+    <hr>
+    <h3>NEW</h3>
+    <p>Syntax: <b>NEW string1 string2;</b></p>
+    <p>Notes: string1 is the name of the variable to create. string2 is the initial value.</p>
+    <hr>
+    <h3>DELETE</h3>
+    <p>Syntax: <b>DELETE string;</b></p>
+    <p>Notes: string is the name of variable to delete.</p>
+    <hr>
+    <h3>SET</h3>
+    <p>Syntax: <b>SET string1 string2;</b></p>
+    <p>Notes: string1 is name of variable. string2 is value to set.</p>
+    <hr>
+    <h3>EXTLOAD</h3>
+    <p>Syntax: <b>EXTLOAD string;</b></p>
+    <p>Notes: string is file path to .pba file relative to the (emulated) SD root.</p>
+    <hr>
+    <h3>FILEWRITE</h3>
+    <p>Syntax: <b>FILEWRITE string1 string2;</b></p>
+    <p>Notes: string1 is file to write to relative to the (emulated) SD root. string2 is the string to write.</p>
+    <hr>
+    <h3>FILEREAD</h3>
+    <p>Syntax: <b>FILEREAD string1 string2;</b></p>
+    <p>Notes: string1 is file to read from relative to the (emulated) SD root. string2 is the name of the variable to write the read buffer to.</p>
+    <hr>
+    <h3>FILERM</h3>
+    <p>Syntax: <b>FILERM string1;</b></p>
+    <p>Notes: string1 is the name of the file to delete relative to the (emulated) SD root.</p>
+    <hr>
+    <h3>END</h3>
+    <p>Syntax: <b>END;</b></p>
+    <p>Notes: Ends execution of the program.</p>
+    <hr>
+  </body>
+</html>
