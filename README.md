@@ -6,6 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/NETponents/ParseBasic.svg)](https://github.com/NETponents/ParseBasic)
 [![GitHub stars](https://img.shields.io/github/stars/NETponents/ParseBasic.svg)](https://github.com/NETponents/ParseBasic)
 [![GitHub release](https://img.shields.io/github/release/NETponents/ParseBasic.svg)](https://github.com/NETponents/ParseBasic)
+[![Github Releases](https://img.shields.io/github/downloads/NETponents/ParseBasic/latest/total.svg)](https://github.com/NETponents/ParseBasic/releases)
 [![GitHub issues](https://img.shields.io/github/issues/NETponents/ParseBasic.svg)](https://github.com/NETponents/ParseBasic)
 [![Issue Stats](http://issuestats.com/github/NETponents/ParseBasic/badge/pr?style=flat)](http://issuestats.com/github/NETponents/ParseBasic)
 [![Issue Stats](http://issuestats.com/github/NETponents/ParseBasic/badge/issue?style=flat)](http://issuestats.com/github/NETponents/ParseBasic)
