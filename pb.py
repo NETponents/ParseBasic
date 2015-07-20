@@ -18,7 +18,7 @@ def main():
     errorcount = 0
     warningcount = 0
     print("Creating virtual filesystem")
-    startpath = "./bootloader/bootloader.pba"
+    startpath = "./bootloader/boot.pba"
     if sys.argv[1]:
         startpath = sys.argv[1]
     startRead(startpath)
