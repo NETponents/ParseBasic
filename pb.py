@@ -30,7 +30,7 @@ def startRead(filepath):
     for line in fileHandle:
         line = line.replace("/n", "").strip()
         if ";" in line:
-            print "."
+            print ".",
         else:
             print "ERROR: missing semicolon"
         line = line.replace(";", "")
