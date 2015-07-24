@@ -28,7 +28,11 @@ def startRead(filepath):
     fileHandle = open(filepath, 'r')
     fileHandle.seek(0)
     for line in fileHandle:
-        line = line.replace(";", "").replace("/n", "").strip()
+        if !line.endswith(';'):
+            print "ERROR: missing semicolon"
+            line = line.replace("/n", "").strip()
+        else:
+            line = line.replace(";", "").replace("/n", "").strip()
         if line.startswith("//"):
             # Do nothing, this is a comment
             print "Comment found"
