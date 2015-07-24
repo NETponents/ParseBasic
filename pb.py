@@ -28,7 +28,7 @@ def startRead(filepath):
     fileHandle = open(filepath, 'r')
     fileHandle.seek(0)
     for line in fileHandle:
-        if !line.endswith(';'):
+        if line.endswith(';') != true:
             print "ERROR: missing semicolon"
             line = line.replace("/n", "").strip()
         else:
