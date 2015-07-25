@@ -1,0 +1,4 @@
+SWAPINIT;
+PRINT "Hello world!";
+NEWPRINT;
+END;
